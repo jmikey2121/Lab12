@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/justin/Desktop/Lab12/Lab12'
+relocations:     []
+...

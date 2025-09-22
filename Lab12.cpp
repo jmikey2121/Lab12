@@ -58,3 +58,41 @@ if (!fin) {
     sort(entries.rbegin(), entries.rend());
     cout << "15. Sorted descending: ";
     for (int v : entries) cout << v << " "; cout << endl;
+
+        // find an element
+    int target = entries[SIZE/3];
+    array<int, SIZE>::iterator it = find(entries.begin(), entries.end(), target);
+    cout << "16. Find " << target;
+    if (it != entries.end())
+        cout << " at position " << (it - entries.begin()) << endl;
+    else
+        cout << " not found.\n";
+
+    // top 5 reverse
+    cout << "17. Top 5 reverse: ";
+    int shown = 0;
+    for (auto rit = entries.crbegin(); rit != entries.crend() && shown < 5; ++rit, ++shown)
+        cout << *rit << " ";
+    cout << endl;
+
+    // swap arrays
+    array<int, 5> flags;
+    array<int, 5> zeros;
+    fill(flags.begin(), flags.end(), 1);
+    fill(zeros.begin(), zeros.end(), 0);
+    cout << "18. 5-element array of ones: 1 1 1 1 1: ";
+    for (int v : flags) cout << v << " "; cout << endl;
+    cout << "19. 5-element array of zeros: 0 0 0 0 0: ";
+    for (int v : zeros) cout << v << " "; cout << endl;
+    flags.swap(zeros);
+    cout << "20. Swapped; the ones array now holds: 0 0 0 0 0: ";
+    for (int v : flags) cout << v << " "; cout << endl;
+
+    // a 2-D array
+    array<int, 2> row1 = { entries[0], entries[1] };
+    array<int, 2> row2 = { entries[2], entries[3] };
+    array< array<int, 2>, 2 > master = { row1, row2 };
+    cout << "21. 2D master[1][1]: " << master[1][1] << endl;
+
+    return 0;
+} 
